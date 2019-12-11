@@ -1,10 +1,7 @@
 ---
 layout: article
-title: 追踪spring的各版本
+title: spring的各版本
 ---
-Spring已经是做项目的必选框架了，几年前起码有SSH，Seam等全栈框架可选，现在面试个程序员都清一色的SpringMVC+Spring+Mybatis了，这样就只能简称SM,人们似乎已经淡忘Struts,没听说过JSF,Wicket,Vraptor，好吧，也许人们在这几年已经把焦点放到了新的SSH(Spark,Storm,Hadoop),或者Play,Grails上了，我还是希望能够好好掌握Spring，所以用这篇文章记录他的版本。
-
-**先感叹下我们的吃饭工具:Java，她是一个平易近人的语言，其足够呆板适用的语法相比其他语言表现力低下，当你的代码量足够大，会发现大量的重复，仅仅异常处理，IO操作就会有无数的语法噪音，这也是一度出现大批java程序员转向动态语言的原因，所以我们急需要一些库来简化，急需要如Intellij IDEA这样的IDE来加速我们的代码编写，Spring的出现拯救了大量的java程序员，但是也在毁掉一些程序员，因为好多程序员再也不知道数据库连接是怎么被管理的，事务的本质是什么。**
 
 ## Spring1.x
 这个版本持续到2006年，那时候我还在念大二，首先我们在这个版本总结spring的很多核心概念，总体模块如图
@@ -223,6 +220,7 @@ RMI，Hessian和Burlap通过Http,Http Invoker,Xfire WebService
 ### Email和Schedule Job和TEST
 public abstract class AbstractClinicTests extends AbstractTransactionalDataSourceSpringContextTests
 
+
 ## Spring2.x
 不再支持jdk1.3, 在2006年的10月发布
 
@@ -271,14 +269,18 @@ scopes.
 * The Spring TaskExecutor abstraction
 
 ## Spring3.x
+
+2009年发布
+
 全面泛型
 
 慎重选择日志
-{% highlight java %}
+
+```
 Not Using Commons Logging
 Using SLF4J
 Using Log4J
-{% endhighlight %}
+```
 
 * Spring's TaskExecutor abstraction has been updated for close integration with Java 5's java.util.concurrent facilities. We provide first-class support for Callables and Futures now, as well as ExecutorService adapters, ThreadFactory integration, etc. This has been aligned with JSR-236 (Concurrency Utilities for Java EE 6) as far as possible. Furthermore, we provide support for asynchronous method invocations through the use of the new @Async annotation (or EJB 3.1's @Asynchronous annotation).
 
@@ -299,7 +301,11 @@ Using Log4J
 * Support for Servlet 3 based asynchronous request processing
 * New Gradle-based build and move to GitHub
 
+
 ## Spring4.x
+
+2013年发布
+
 * Java 8 (as well as 6 and 7)
 * Groovy Bean Definition DSL
 * WebSocket, SockJS, and STOMP Messaging
@@ -309,6 +315,67 @@ Using Log4J
 * CGLIB-based proxy classes no longer require a default constructor
 * @RestController annotation
 * OkHTTP integration with the RestTemplate.
+
+
+## SpringBoot 1.0
+
+2014年发布
+
+
+
+## Spring5.x
+
+2016年发布
+
+* Spring 5的代码基于Java 8的语法规范，因此要想使用Spring 5，JDK的版本至少要在8.0以上
+* 在日志端，Spring 5.0提供了Common Logging的桥接模块，spring-jcl，代替了标准的Common Logging
+* 引入了JetBrains的Kotlin语言支持
+* 响应式Web编程
+* 新的模块叫做spring-webflux，可以支持响应式的Http和WebSocket客户端
+* 完全支持Junit 5
+* 提供专门的 HTTP/2 特性支持
+* Portlet、Velocity、JasperReports、XMLBeans、JDO 和 Guava 的支持中止
+* orm.hibernate3和orm.hibernate4.现在支持Hibernate5
+
+
+## SpringCloud 
+
+2016 Camden.RELEASE
+
+2017 Dalston.RELEASE
+
+2017 Edgware.RELEASE
+
+2018 Finchley.RELEASE
+
+2019 Greenwich.RELEASE
+
+
+
+## SpringBoot 2.0
+
+
+2018年发布
+
+
+* 基于 Spring 5 构建，Spring 的新特性均可以在 Spring Boot 2.0 中使用
+* 基于 Java 8
+* 支持 Java 9；
+* 支持 Quartz 调度程序；
+* 支持嵌入式 Netty，Tomcat, Undertow 和 Jetty 均已支持 HTTP/2；
+* 执行器架构重构，支持 Spring MVC, WebFlux 和 Jersey；
+* 对响应式编程提供最大支持；
+* 引入对 Kotlin 1.2.x 的支持，并提供了一个 runApplication 函数，用Kotlin 通用的方式启动 Spring Boot 应用程序。
+
+
+## Boot 1.x TimeLine 
+
+* Spring boot 1.1 (June 2014) – improved templating support, gemfire support, auto configuration for elasticsearch and apache solr.
+* Spring boot 1.2 (March 2015) – upgrade to servlet 3.1/tomcat 8/jetty 9, spring 4.1 upgrade, support for banner/jms/SpringBootApplication annotation.
+* Spring boot 1.3 (December 2016) – spring 4.2 upgrade, new spring-boot-devtools, auto configuration for caching technologies(ehcache, hazelcast, redis, guava and infinispan) and fully executable jar support.
+* Spring boot 1.4 (January 2017) – spring 4.3 upgrade, couchbase/neo4j support, analysis of startup failures and RestTemplateBuilder.
+* Spring boot 1.5 (February 2017) – support for kafka/ldap, third party library upgrades, deprecation of CRaSH support and actuator loggers endpoint to modify application log levels on the fly.
+
 
 
 ## Spring生态
@@ -324,3 +391,7 @@ Using Log4J
 * Spring Mobile
 * Spring Integration
 * Spring Cloud
+
+
+
+[参考](https://www.quickprogrammingtips.com/spring-boot/history-of-spring-framework-and-spring-boot.html)

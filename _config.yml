@@ -1,9 +1,9 @@
-url: "http://www.codingbaby.com"
+url: "http://vsmysee.github.io"
 baseurl: ""
 permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 date_format: "ordinal"
-paginate: 15
+paginate: 20
 paginate_path: "blog/page:num"
 gems: [jekyll-paginate]

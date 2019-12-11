@@ -234,18 +234,60 @@ $(function () {
             $("#next_page,#pre_page").css({opacity: 1});
         }
 
+        var aboutMe = document.createElement("div"), backHome = document.createElement("div"),
+            docker = document.createElement("div"), git = document.createElement("div"),
+            kubernetes = document.createElement("div");
+
+        aboutMe.id = "me";
+        aboutMe.className = "me";
+
+        backHome.id = "home"
+        backHome.className = "home";
+
+        docker.id = "docker";
+        docker.className = "docker";
+
+        git.id = "git";
+        git.className = "git";
+
+        kubernetes.id = "kubernetes";
+        kubernetes.className = "kubernetes";
+
+
+        document.body.appendChild(backHome);
+        document.body.appendChild(aboutMe);
+        document.body.appendChild(docker);
+        document.body.appendChild(git);
+        document.body.appendChild(kubernetes);
+
+
+        aboutMe.onclick = showProfile;
+
+        backHome.onclick = function () {
+            window.location = "/";
+        }
+
+        docker.onclick = function () {
+            window.location = "/blog/2019/11/29/docker-command";
+        }
+
+        git.onclick = function () {
+            window.location = "/blog/2015/07/02/git-command";
+        }
+
+        kubernetes.onclick = function () {
+            window.location = "/blog/2019/12/05/kubernetes-command"
+        }
+
+
         if (getDocumentHeight() > getWindowHeight() + 500) {
 
 
-            var toTop = document.createElement("div"), aboutMe = document.createElement("div"),
-                pot_t = 0,
-                pot_b = 1;
+            var toTop = document.createElement("div"),
+                pot_t = 0, pot_b = 1;
 
             toTop.id = "to_top";
             toTop.className = "to_top";
-
-            aboutMe.id = "me";
-            aboutMe.className = "me";
 
 
             var toright = (getWindowWidth() - 1000) / 2 - 40 - 20;
@@ -255,8 +297,6 @@ $(function () {
                 var scrollTop = $(document).scrollTop();
                 if (scrollTop > 290 && pot_t == 0) {
                     $(toTop).stop().animate({"right": toright, "opacity": "1"}, 200);
-                    $(aboutMe).stop().animate({ "opacity": "0"}, 200);
-
 
                     fuckScreen();
 
@@ -264,7 +304,6 @@ $(function () {
                     pot_b = 0;
                 } else if (scrollTop < 290 && pot_b == 0) {
                     $(toTop).stop().animate({"right": "-60px", "opacity": "0"}, 200);
-                    $(aboutMe).stop().animate({"opacity": "1"}, 200);
 
                     pot_t = 0;
                     pot_b = 1;
@@ -275,36 +314,22 @@ $(function () {
             });
 
             document.body.appendChild(toTop);
-            document.body.appendChild(aboutMe);
-
 
 
             toTop.onclick = function () {
                 $("html,body").animate({scrollTop: 0}, 500);
             };
 
-            aboutMe.onclick = showProfile;
+
         }
 
     })();
 
 
-    //给代码段加入放大图标
-    (function () {
-        if ($(".highlight").length != 0) {
-            $(".highlight").append("<div class='codezoom'></div>");
-            $(".codezoom").click(function () {
-                var pop = new Pop({w: getWindowWidth() * 0.98, h: getWindowHeight() * 0.95, b: "#FFF"});
-                pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
-                pop.show();
-            });
-        }
-    })()
-
     //先把个人信息图片加载一把利用浏览器缓存
     var loadMyProfileImg = function () {
         var forload = [];
-        forload.push("/images/slide_left.png", "/images/slide_right.png", "/images/close.png");
+        forload.push("/images/close.png");
         document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
             forload.push($1);
         });

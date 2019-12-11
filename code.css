@@ -1,5 +1,4 @@
 
-
 .codezoom {
     position: absolute;
     right: 0px;
@@ -12,6 +11,7 @@
 
 .highlight {
     position: relative;
+    margin-bottom: 20px;
 }
 
 .highlight pre {
@@ -19,8 +19,7 @@
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #020202;
-    border-radius: 3px;
+    background-color: #282c34;
 
 }
 
@@ -30,6 +29,7 @@
     margin: 0;
     height: 100%;
     padding: 0;
+    color: white;
 }
 
 .pop_highlight .codezoom {
@@ -40,6 +40,11 @@
     word-wrap: break-word;
     font-family: Monaco, Menlo, "Ubuntu Mono", consolas, source-code-pro, "Courier New", monospace;
     font-weight: 700;
+}
+
+.language-plaintext, .highlighter-rouge {
+    color: #ffffffd1;
+    margin-bottom: 20px;
 }
 
 .highlight .hll {

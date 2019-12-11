@@ -3,20 +3,43 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>{{page.title}}</title>
 
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/main.css"/>
     <link rel="stylesheet" href="/code.css"/>
 </head>
 
 <body>
 <style>
-    @media screen and (max-width: 640px) {
-        body {
-            padding: 4px 15px;
-        }
+
+    .ba {
+        margin-right: 5px;
     }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    @media screen and (max-width: 750px){
+        body {font-size:14px;}
+        .wp {width:85%;margin:50px auto 50px; }
+
+        #me {display:none;}
+        #home {display:none;}
+        #docker {display:none;}
+        #git {display:none;}
+        #kubernetes {display:none;}
+
+
+        h2{font-size:20px;}
+        h3{font-size:16px;}
+
+        .ba{font-size:15px;}
+        .ardate {display: none}
+
+    }
+
+
 </style>
